@@ -1,0 +1,27 @@
+.video-card-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+  cursor: pointer;
+  border-bottom: 1px dotted #e5e5e5;
+}
+
+.video-card-div img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.description {
+}
+
+.description h2 {
+  font-size: 14px;
+}
+
+.description p {
+  font-size: 12px;
+  max-width: 200px;
+}
