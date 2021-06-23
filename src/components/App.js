@@ -13,16 +13,20 @@ class App extends React.Component {
     selectedVideo: null,
   };
 
+  componentDidMount() {
+    this.getVideos('lyngen');
+  }
+
   getVideos = async term => {
     const data = await youtube.get(`/search?q=${term}`);
-    console.log(data);
-    this.setState({ videos: data.data.items });
+    this.setState({
+      videos: data.data.items,
+      selectedVideo: data.data.items[0],
+    });
   };
 
   onVideoSelect = video => {
-    console.log(video);
     this.setState({ selectedVideo: video });
-    console.log('current state of selected video:', this.state.selectedVideo);
   };
 
   render() {

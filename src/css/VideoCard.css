@@ -2,26 +2,28 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   cursor: pointer;
-  border-bottom: 1px dotted #e5e5e5;
 }
 
 .video-card-div img {
-  width: 90px;
-  height: 90px;
+  width: 88px;
+  height: 88px;
   object-fit: cover;
   margin-right: 10px;
 }
 
-.description {
+.description :nth-child(2) {
+  margin-bottom: 5px;
 }
 
 .description h2 {
   font-size: 14px;
+  display: inline;
 }
 
 .description p {
   font-size: 12px;
   max-width: 200px;
+  margin: 0;
 }

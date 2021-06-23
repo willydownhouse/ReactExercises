@@ -1,49 +1,19 @@
 .video-screen {
-  padding: 30px;
-  width: 75%;
-  background: #fcfcfc;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .media-player {
   height: 500px;
+  margin-top: 60px;
+}
+
+.iframe {
+  width: 95%;
+  height: 100%;
+  border: none;
+}
+
+.details {
+  box-sizing: border-box;
   width: 85%;
-  background: #fff;
-}
-
-.screen {
-  height: 90%;
-  width: 100%;
-  background: #333;
-}
-
-.controller {
-  height: 10%;
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.controller-btns {
-  width: 10%;
-  display: flex;
-  align-items: center;
-}
-
-.fa-play-circle,
-.fa-pause-circle {
-  cursor: pointer;
-}
-.fa-play-circle {
-  margin-right: 5px;
-}
-
-#file {
-  width: 75%;
-  cursor: pointer;
+  padding: 10px;
 }

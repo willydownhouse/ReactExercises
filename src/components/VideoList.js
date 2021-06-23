@@ -4,8 +4,6 @@ import VideoCard from './VideoCard';
 import '../css/VideoList.css';
 
 const VideoList = props => {
-  console.log(props.videos);
-
   const videos = props.videos.map(video => {
     return (
       <VideoCard
