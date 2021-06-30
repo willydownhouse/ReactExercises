@@ -1,0 +1,15 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.ui.image {
+  width: 100px;
+  height: 100px;
+}
+
+.content {
+  max-width: 80%;
+}

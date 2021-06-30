@@ -1,0 +1,37 @@
+.search {
+  height: 6rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.logo i {
+  color: red;
+  margin-right: 0.2rem;
+}
+
+.logo h1 {
+  margin: auto 0;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  font-size: 2rem;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
