@@ -1,17 +1,17 @@
 import React from 'react';
 import '../css/VideoItem.css';
 
-const VideoItem = ({ id, snippet, setCurrentVideo }) => {
+const VideoItem = ({ video, setCurrentVideo }) => {
   return (
-    <div className="item" onClick={() => setCurrentVideo(id)}>
+    <div className="item" onClick={() => setCurrentVideo(video)}>
       <img
         className="ui image"
-        alt={snippet.title}
-        src={snippet.thumbnails.medium.url}
+        alt={video.snippet.title}
+        src={video.snippet.thumbnails.medium.url}
       />
       <div className="content">
-        <h3 className="header">{snippet.title}</h3>
-        <div className="description">{snippet.description}</div>
+        <h3 className="header">{video.snippet.title}</h3>
+        <div className="description">{video.snippet.description}</div>
       </div>
     </div>
   );

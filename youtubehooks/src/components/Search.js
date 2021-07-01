@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import '../css/Search.css';
 
-const Search = ({ setTerm }) => {
+const Search = ({ setTerm, setCurrentVideo }) => {
   const [inputVal, setInputVal] = useState('');
 
   const onSubmitEvent = e => {
     e.preventDefault();
     setTerm(inputVal);
     setInputVal('');
+    setCurrentVideo(null);
   };
 
   return (
