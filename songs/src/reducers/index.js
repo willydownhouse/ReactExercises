@@ -4,15 +4,15 @@ export const songsReducer = () => {
   return [
     {
       title: 'PokerFace',
-      length: '4:21',
+      duration: '4:21',
     },
     {
       title: 'BlackOrWhite',
-      length: '2:21',
+      duration: '2:21',
     },
     {
       title: 'haloo lyngen',
-      length: '3:21',
+      duration: '3:21',
     },
   ];
 };

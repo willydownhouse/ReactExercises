@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div className="ui container">
       <SongList />
+      <SongDetails />
     </div>
   );
 };

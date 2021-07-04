@@ -1,13 +1,10 @@
 .ui.container {
   min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .list {
-  width: 50%;
-  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,8 +22,6 @@
 }
 
 .songdetails {
-  width: 50%;
-  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
