@@ -3,6 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const SongDetails = ({ song }) => {
+  console.log(song);
+
   if (!song) return null;
 
   return (
