@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getPosts } from '../actions';
+import { getPostsAndUsers } from '../actions';
 import UserHeader from './UserHeader';
 
 class PostList extends React.Component {
   componentDidMount() {
-    this.props.getPosts();
+    this.props.getPostsAndUsers();
   }
 
   renderedList() {
@@ -24,8 +24,6 @@ class PostList extends React.Component {
   }
 
   render() {
-    console.log(this.props.posts);
-
     if (this.props.posts.length === 0)
       return <div className="ui active centered inline loader"></div>;
 
@@ -38,5 +36,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  getPosts,
+  getPostsAndUsers,
 })(PostList);
