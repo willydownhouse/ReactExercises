@@ -8,11 +8,14 @@ import StreamEdit from './streams/StreamEdit';
 import StreamCreate from './streams/StreamCreate';
 import StreamDelete from './streams/StreamDelete';
 
+import '../css/style.css';
+
 const App = () => {
   return (
     <div className="ui container">
       <Router>
         <Header />
+
         <Route path="/" exact component={StreamList} />
         <Route path="/streams/show" component={StreamShow} />
         <Route path="/streams/new" component={StreamCreate} />
