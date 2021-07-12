@@ -1,0 +1,14 @@
+{
+  "streams": [
+    {
+      "title": "haloo lyngen",
+      "description": "skiinf in lyngen alps",
+      "id": 2
+    },
+    {
+      "title": "Aosta Valley mtb",
+      "description": "Mountainbiking in  Aosta VAlley",
+      "id": 3
+    }
+  ]
+}
