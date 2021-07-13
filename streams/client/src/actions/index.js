@@ -23,25 +23,20 @@ export const signOut = () => {
   };
 };
 
-export const createStream = (title, description) => async dispatch => {
-  const { data } = await streams.post(
-    '/streams',
-    {
+export const createStream =
+  (title, description) => async (dispatch, getState) => {
+    const { userId } = getState().auth;
+    const { data } = await streams.post('/streams', {
       title,
       description,
-    },
-    {
-      headers: {
-        'Content-type': 'application/json',
-      },
-    }
-  );
+      userId,
+    });
 
-  dispatch({
-    type: CREATE_STREAM,
-    payload: data,
-  });
-};
+    dispatch({
+      type: CREATE_STREAM,
+      payload: data,
+    });
+  };
 
 export const getAllStreams = () => async dispatch => {
   const { data } = await streams.get('/streams');
