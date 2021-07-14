@@ -24,9 +24,8 @@ class StreamCreate extends React.Component {
     );
   };
 
-  onSubmit = ({ title, description }) => {
-    this.props.createStream(title, description);
-    this.props.reset();
+  onSubmit = formValues => {
+    this.props.createStream(formValues);
   };
 
   render() {
@@ -41,18 +40,19 @@ class StreamCreate extends React.Component {
           component={this.renderInput}
           label="Enter description"
         />
-        <button className="ui button primary">Submit</button>
+        <button className="ui button secondary">Submit</button>
       </form>
     );
   }
 }
 
-const validate = ({ title, description }) => {
+const validate = formValues => {
   const errors = {};
-  if (!title) {
+
+  if (!formValues.title) {
     errors.title = 'Stream must have a title';
   }
-  if (!description) {
+  if (!formValues.description) {
     errors.description = 'Stream must have a description';
   }
   return errors;
