@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { getAllStreams, deleteStream } from '../../actions';
+import { getAllStreams } from '../../actions';
 import { connect } from 'react-redux';
 
 class StreamList extends React.Component {
@@ -13,8 +13,15 @@ class StreamList extends React.Component {
     if (stream.userId === this.props.userId) {
       return (
         <div className="right floated content">
-          <button className="ui button">Edit</button>
-          <button className="ui button negative">Delete</button>
+          <Link to={`/streams/edit/${stream.id}`} className="ui button">
+            Edit
+          </Link>
+          <Link
+            to={`/streams/delete/${stream.id}`}
+            className="ui button negative"
+          >
+            Delete
+          </Link>
         </div>
       );
     }
