@@ -55,12 +55,15 @@ export const getOneStream = id => async dispatch => {
   });
 };
 export const updateStream = (id, values) => async dispatch => {
-  const { data } = streams.put(`/streams/${id}`, values);
+  const { data } = await streams.patch(`/streams/${id}`, values);
 
   dispatch({
     type: UPDATE_STREAM,
     payload: data,
   });
+
+  //PROGRAMMATIC NAVIGATION
+  history.push('/');
 };
 export const deleteStream = id => async dispatch => {
   await streams.delete(`/streams/${id}`);

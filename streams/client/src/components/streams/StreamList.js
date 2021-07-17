@@ -28,8 +28,6 @@ class StreamList extends React.Component {
   }
 
   renderStreamList() {
-    console.log(this.props.streams);
-
     return this.props.streams.map(stream => {
       return (
         <div style={{ cursor: 'pointer' }} key={stream.id} className="item">
