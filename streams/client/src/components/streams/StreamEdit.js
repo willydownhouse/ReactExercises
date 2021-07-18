@@ -1,52 +1,29 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
 
 import { getOneStream, updateStream } from '../../actions';
 import { connect } from 'react-redux';
+import CreateForm from '../CreateForm';
+
+//Tarkista että vain oman streamin voi päivittää
+//lisää userId steittiin
 
 class StreamEdit extends React.Component {
   componentDidMount() {
     this.props.getOneStream(this.props.match.params.id);
   }
 
-  renderInput({ input, label, meta, placeholder }) {
-    return (
-      <div className="field">
-        <label>{label}</label>
-        <input {...input} autoComplete="off" placeholder={placeholder} />
-      </div>
-    );
-  }
-
-  onSubmit = formValues => {
-    this.props.updateStream(this.props.match.params.id, formValues);
-    console.log('should be updated');
-  };
-
   render() {
-    console.log(this.props);
-
-    if (!this.props.stream) return null;
+    if (!this.props.stream) return <div>Loading...</div>;
 
     return (
-      <form
-        onSubmit={this.props.handleSubmit(this.onSubmit)}
-        className="ui form"
-      >
-        <Field
-          name="title"
-          component={this.renderInput}
-          label="Enter title"
-          placeholder={this.props.stream.title}
-        />
-        <Field
-          name="description"
-          component={this.renderInput}
-          label="Enter description"
-          placeholder={this.props.stream.description}
-        />
-        <button className="ui button secondary">Submit</button>
-      </form>
+      <CreateForm
+        title1="title"
+        title2="description"
+        placeholder1={this.props.stream.title}
+        placeholder2={this.props.stream.description}
+        onFormSubmit={this.props.updateStream}
+        StreamId={this.props.stream.id}
+      />
     );
   }
 }
@@ -57,11 +34,7 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const formWrapped = reduxForm({
-  form: 'editForm',
-})(StreamEdit);
-
 export default connect(mapStateToProps, {
   getOneStream,
   updateStream,
-})(formWrapped);
+})(StreamEdit);
