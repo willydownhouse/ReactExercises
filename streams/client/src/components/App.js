@@ -9,7 +9,7 @@ import StreamCreate from './streams/StreamCreate';
 import StreamDelete from './streams/StreamDelete';
 import history from '../history';
 
-import '../css/style.css';
+//import '../css/style.css';
 
 const App = () => {
   return (

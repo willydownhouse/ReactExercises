@@ -29,6 +29,10 @@ class CreateForm extends React.Component {
   };
 
   render() {
+    if (!this.props.isSignedIn) {
+      return <div>Please login to get access</div>;
+    }
+
     return (
       <div>
         <form

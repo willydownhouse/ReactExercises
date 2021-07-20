@@ -1,15 +1,9 @@
 {
   "streams": [
     {
-      "title": "Cervinia",
+      "title": "Cerv",
       "description": "matter",
       "id": 3
-    },
-    {
-      "title": "cia",
-      "description": "lyngen",
-      "userId": "101956057500779471658",
-      "id": 4
     }
   ]
 }
