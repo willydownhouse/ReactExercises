@@ -8,7 +8,6 @@ import history from '../../history';
 
 class StreamDelete extends React.Component {
   componentDidMount() {
-    console.log(this.props);
     this.props.getOneStream(this.props.match.params.id);
   }
 
