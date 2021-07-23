@@ -1,0 +1,28 @@
+.login {
+  height: 85vh;
+  background-color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+}
+
+.login-window {
+  padding: 20px;
+  width: 500px;
+  height: 350px;
+  background-color: #fff;
+}
+
+/* .ui.form {
+  width: 100%;
+  height: 100%;
+} */
