@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+import Signup from './Signup';
 import Login from './Login';
 import Header from './Header';
 import Showcase from './Showcase';
@@ -11,13 +12,20 @@ const App = () => {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <Header btnTitle="Login" btnColor="red" />
-          <Showcase />
+          <Header btnTitle="Login" btnColor="red inverted" />
+          <Showcase
+            title="BlogWorld"
+            header="Find the most interesting blogs"
+            linkTxt="Create account"
+          />
           <Footer />
         </Route>
         <Route path="/login">
-          <Header btnTitle="Signup" btnColor="inverted black" />
+          <Header />
           <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
         </Route>
       </Switch>
     </BrowserRouter>

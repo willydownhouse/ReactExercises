@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form';
 
 import '../css/Login.css';
 
@@ -12,11 +13,11 @@ const Login = () => {
           <div className="ui stacked segment">
             <div className="field">
               <label>Email</label>
-              <input type="email" placeholder="Email" />
+              <input type="text" placeholder="Email" />
             </div>
             <div className="field">
               <label>Password</label>
-              <input type="password" placeholder="Password" />
+              <input type="text" placeholder="Password" />
             </div>
             <button className="ui fluid large red submit button">Login</button>
           </div>
@@ -29,4 +30,6 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default reduxForm({
+  form: 'login',
+})(Login);
