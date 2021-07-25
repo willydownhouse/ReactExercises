@@ -1,7 +1,8 @@
 const authReducers = (state = null, action) => {
   switch (action.type) {
     case 'SIGN_IN':
-      return { ...state, isSignedIn: true, token: action.payload };
+      sessionStorage.setItem('token', action.payload.token);
+      return { ...state, isSignedIn: true };
 
     default:
       return state;

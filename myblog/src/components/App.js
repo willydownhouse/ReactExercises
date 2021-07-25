@@ -1,15 +1,17 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
+import history from '../history';
 
 import Signup from './Signup';
 import Login from './Login';
 import Header from './Header';
 import Showcase from './Showcase';
+import Blogs from './Blogs';
 import Footer from './Footer';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <Router history={history}>
       <Switch>
         <Route path="/" exact>
           <Header btnTitle="Login" btnColor="red inverted" />
@@ -27,9 +29,19 @@ const App = () => {
         <Route path="/signup">
           <Signup />
         </Route>
+        <Route path="/blogs">
+          <Blogs />
+        </Route>
       </Switch>
-    </BrowserRouter>
+    </Router>
   );
 };
 
 export default App;
+
+//////WHAT NEXT
+
+//BUILD SIGN UP PAGE
+//BUILD BLOG/MAIN PAGE
+
+//ERRORS
