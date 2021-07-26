@@ -22,6 +22,8 @@ class Login extends React.Component {
   };
 
   render() {
+    console.log(this.props);
+
     return (
       <div className="login">
         <h2 className="title">Log-in to your count</h2>
@@ -51,8 +53,14 @@ class Login extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    err: state.error,
+  };
+};
+
 const formWrapped = reduxForm({
   form: 'login',
 })(Login);
 
-export default connect(null, { login })(formWrapped);
+export default connect(mapStateToProps, { login })(formWrapped);

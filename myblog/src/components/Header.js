@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import '../css/Header.css';
 
-const Header = ({ btnTitle, btnColor }) => {
+const Header = ({ btnTitle, btnColor, bg, logo }) => {
   const renderLoginButton = () => {
     if (btnColor && btnTitle) {
       return (
@@ -16,8 +16,8 @@ const Header = ({ btnTitle, btnColor }) => {
   };
 
   return (
-    <header className="header">
-      <Link to="/" className="logo">
+    <header style={{ background: bg }} className="header">
+      <Link to="/" className="logo" style={{ color: logo }}>
         <h2>BlogWorld</h2>
       </Link>
       <div className="login">{renderLoginButton()}</div>

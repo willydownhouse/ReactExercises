@@ -1,6 +1,6 @@
-.login {
+.signup {
   height: 85vh;
-  background-color: #111;
+  background: #111;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,14 +15,6 @@
   color: #fff;
 }
 
-.login-window {
-  padding: 20px;
-  width: 500px;
-
-  background-color: #fff;
+.signup-window {
+  width: 600px;
 }
-
-/* .ui.form {
-  width: 100%;
-  height: 100%;
-} */

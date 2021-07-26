@@ -1,6 +1,22 @@
 import blogapi from '../apis/blogapi';
 import history from '../history';
 
+export const signup = formValues => async dispatch => {
+  try {
+    const response = await blogapi.post('users/signup', formValues);
+
+    console.log(response);
+
+    dispatch({ type: 'SIGN_UP', payload: response.data });
+
+    history.push('/blogs');
+  } catch (err) {
+    console.log(err.response);
+    alert(err.response.data.message);
+    dispatch({ type: 'ERROR', payload: err.response.data.message });
+  }
+};
+
 export const login = formValues => async dispatch => {
   try {
     const response = await blogapi.post('/users/login', formValues);
@@ -9,9 +25,16 @@ export const login = formValues => async dispatch => {
 
     history.push('/blogs');
   } catch (err) {
-    console.log(err.message);
-    dispatch({ type: 'ERROR', payload: err.message });
+    alert(err.response.data.message);
+    dispatch({ type: 'ERROR', payload: err.response.data.message });
   }
+};
+
+export const logout = () => {
+  console.log('from logout');
+  return {
+    type: 'SIGN_OUT',
+  };
 };
 
 export const getAllBlogs = () => async dispatch => {
@@ -20,8 +43,5 @@ export const getAllBlogs = () => async dispatch => {
       Authorization: `Bearer ${sessionStorage.getItem('token')}`,
     },
   });
-
-  console.log(data);
-
   dispatch({ type: 'GET_ALL_BLOGS', payload: data.data });
 };

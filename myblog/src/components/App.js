@@ -8,13 +8,19 @@ import Header from './Header';
 import Showcase from './Showcase';
 import Blogs from './Blogs';
 import Footer from './Footer';
+import MyPage from './MyPage';
 
 const App = () => {
   return (
     <Router history={history}>
       <Switch>
         <Route path="/" exact>
-          <Header btnTitle="Login" btnColor="red inverted" />
+          <Header
+            bg="#111"
+            logo="#fff"
+            btnTitle="Login"
+            btnColor="red inverted"
+          />
           <Showcase
             title="BlogWorld"
             header="Find the most interesting blogs"
@@ -23,14 +29,18 @@ const App = () => {
           <Footer />
         </Route>
         <Route path="/login">
-          <Header />
+          <Header bg="#111" logo="#fff" />
           <Login />
         </Route>
         <Route path="/signup">
+          <Header bg="#111" logo="#fff" />
           <Signup />
         </Route>
         <Route path="/blogs">
           <Blogs />
+        </Route>
+        <Route path="/mypage">
+          <MyPage />
         </Route>
       </Switch>
     </Router>
