@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import blogapi from '../apis/blogapi';
 import history from '../history';
 
@@ -21,6 +22,8 @@ export const login = formValues => async dispatch => {
   try {
     const response = await blogapi.post('/users/login', formValues);
 
+    console.log(response);
+
     dispatch({ type: 'SIGN_IN', payload: response.data });
 
     history.push('/blogs');
@@ -31,7 +34,7 @@ export const login = formValues => async dispatch => {
 };
 
 export const logout = () => {
-  console.log('from logout');
+  history.push('/');
   return {
     type: 'SIGN_OUT',
   };
@@ -44,4 +47,38 @@ export const getAllBlogs = () => async dispatch => {
     },
   });
   dispatch({ type: 'GET_ALL_BLOGS', payload: data.data });
+};
+
+export const getUser = id => async dispatch => {
+  try {
+    const { data } = await blogapi.get(`/users/${id}`, {
+      headers: {
+        Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+      },
+    });
+
+    console.log(data);
+
+    dispatch({ type: 'GET_ONE_USER', payload: data.data.doc });
+  } catch (err) {
+    alert(err.response.data.message);
+    dispatch({ type: 'ERROR', payload: err.response.data.message });
+  }
+};
+
+export const getBlogsAndUsers = () => async (dispatch, getState) => {
+  await dispatch(getAllBlogs());
+
+  const blogs = getState().blogs;
+
+  console.log(blogs);
+
+  _.chain(blogs)
+    .map('author')
+    .uniq()
+    .forEach(id => {
+      console.log(id);
+      dispatch(getUser(id));
+    })
+    .value();
 };

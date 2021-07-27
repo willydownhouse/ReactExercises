@@ -22,8 +22,6 @@ class Login extends React.Component {
   };
 
   render() {
-    console.log(this.props);
-
     return (
       <div className="login">
         <h2 className="title">Log-in to your count</h2>

@@ -15,7 +15,7 @@ const authReducers = (state = initState, action) => {
         isSignedIn: true,
       };
     case 'SIGN_OUT':
-      sessionStorage.clear();
+      sessionStorage.removeItem('token');
       return { ...state, isSignedIn: false };
 
     default:

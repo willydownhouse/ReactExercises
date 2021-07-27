@@ -9,5 +9,62 @@
   object-fit: cover;
 }
 
-.blogs {
+.blog-list {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.blog {
+  cursor: pointer;
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px dotted #efefef;
+}
+
+.blog i {
+  margin-right: 10px;
+}
+
+.blog-type {
+  margin-bottom: 20px;
+  width: 55px;
+  font-size: 12px;
+  border: 1px solid #999;
+  padding: 3px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.blog-title {
+  font-weight: bold;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.blog-author {
+  font-size: 12px;
+}
+
+.blog-date {
+  font-size: 12px;
+}
+
+.blog:hover {
+  background: #f9f9f9;
+}
+
+.green {
+  background: linear-gradient(rgb(31, 163, 64), rgb(103, 236, 41));
+}
+
+.pink {
+  background: linear-gradient(#ff91e8, #ff7085);
+}
+
+.black {
+  background: #222;
 }

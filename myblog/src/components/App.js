@@ -7,6 +7,7 @@ import Login from './Login';
 import Header from './Header';
 import Showcase from './Showcase';
 import Blogs from './Blogs';
+import CreateBlog from './CreateBlog';
 import Footer from './Footer';
 import MyPage from './MyPage';
 
@@ -41,6 +42,9 @@ const App = () => {
         </Route>
         <Route path="/mypage">
           <MyPage />
+        </Route>
+        <Route path="/createblog">
+          <CreateBlog />
         </Route>
       </Switch>
     </Router>
