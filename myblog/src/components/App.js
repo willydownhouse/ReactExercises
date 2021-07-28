@@ -4,40 +4,32 @@ import history from '../history';
 
 import Signup from './Signup';
 import Login from './Login';
-import Header from './Header';
 import Showcase from './Showcase';
-import Blogs from './Blogs';
-import CreateBlog from './CreateBlog';
-import Footer from './Footer';
+import Blogs from './blogs/Blogs';
+import CreateBlog from './blogs/CreateBlog';
 import MyPage from './MyPage';
+import BlogDetails from './blogs/BlogDetails';
+import UpdateBlog from './blogs/UpdateBlog';
+import DeleteBlog from './blogs/DeleteBlog';
 
 const App = () => {
   return (
     <Router history={history}>
       <Switch>
         <Route path="/" exact>
-          <Header
-            bg="#111"
-            logo="#fff"
-            btnTitle="Login"
-            btnColor="red inverted"
-          />
           <Showcase
             title="BlogWorld"
             header="Find the most interesting blogs"
             linkTxt="Create account"
           />
-          <Footer />
         </Route>
         <Route path="/login">
-          <Header bg="#111" logo="#fff" />
           <Login />
         </Route>
         <Route path="/signup">
-          <Header bg="#111" logo="#fff" />
           <Signup />
         </Route>
-        <Route path="/blogs">
+        <Route path="/blogs" exact>
           <Blogs />
         </Route>
         <Route path="/mypage">
@@ -46,16 +38,14 @@ const App = () => {
         <Route path="/createblog">
           <CreateBlog />
         </Route>
+        <Route path="/blogs/:id">
+          <BlogDetails />
+        </Route>
+        <Route path="/blogs/update/:id" component={UpdateBlog} />
+        <Route path="/blogs/delete/:id" component={DeleteBlog} />
       </Switch>
     </Router>
   );
 };
 
 export default App;
-
-//////WHAT NEXT
-
-//BUILD SIGN UP PAGE
-//BUILD BLOG/MAIN PAGE
-
-//ERRORS

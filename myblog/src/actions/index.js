@@ -6,7 +6,7 @@ export const signup = formValues => async dispatch => {
   try {
     const response = await blogapi.post('users/signup', formValues);
 
-    console.log(response);
+    console.log(response.data);
 
     dispatch({ type: 'SIGN_UP', payload: response.data });
 
@@ -22,7 +22,7 @@ export const login = formValues => async dispatch => {
   try {
     const response = await blogapi.post('/users/login', formValues);
 
-    console.log(response);
+    console.log(response.data);
 
     dispatch({ type: 'SIGN_IN', payload: response.data });
 
@@ -57,8 +57,6 @@ export const getUser = id => async dispatch => {
       },
     });
 
-    console.log(data);
-
     dispatch({ type: 'GET_ONE_USER', payload: data.data.doc });
   } catch (err) {
     alert(err.response.data.message);
@@ -71,14 +69,9 @@ export const getBlogsAndUsers = () => async (dispatch, getState) => {
 
   const blogs = getState().blogs;
 
-  console.log(blogs);
-
   _.chain(blogs)
     .map('author')
     .uniq()
-    .forEach(id => {
-      console.log(id);
-      dispatch(getUser(id));
-    })
+    .forEach(id => dispatch(getUser(id)))
     .value();
 };
