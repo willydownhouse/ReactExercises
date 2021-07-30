@@ -12,6 +12,10 @@ import BlogDetails from './blogs/BlogDetails';
 import UpdateBlog from './blogs/UpdateBlog';
 import DeleteBlog from './blogs/DeleteBlog';
 
+const appConfig = {
+  types: ['lifestyle', 'sport', 'nature', 'fashion'],
+};
+
 const App = () => {
   return (
     <Router history={history}>
@@ -30,13 +34,13 @@ const App = () => {
           <Signup />
         </Route>
         <Route path="/blogs" exact>
-          <Blogs />
+          <Blogs types={appConfig.types} />
         </Route>
         <Route path="/mypage">
           <MyPage />
         </Route>
         <Route path="/createblog">
-          <CreateBlog />
+          <CreateBlog types={appConfig.types} />
         </Route>
         <Route path="/blogs/:id">
           <BlogDetails />

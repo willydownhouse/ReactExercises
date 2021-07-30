@@ -7,6 +7,7 @@ import Menu from '../Menu';
 import Footer from '../Footer';
 import Author from '../Author';
 import ImgCont from '../ImgCont';
+import BlogTypeSelector from '../BlogTypeSelector';
 import PageIfNotSignedIn from '../PageIfNotSignedIn';
 
 import '../../css/Blogs.css';
@@ -81,13 +82,22 @@ class Blogs extends React.Component {
     return (
       <React.Fragment>
         <div className="ui container">
-          <Menu link1="Write a new blog" link2="My page" link3="Log out" />
+          <Menu
+            link1="Write a new blog"
+            link2="My page"
+            link3="Log out"
+            path1="/createblog"
+            path2="/mypage"
+            path3="/"
+          />
           <ImgCont
             src="https://images.pexels.com/photos/1112048/pexels-photo-1112048.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
             alt="img"
           />
-
-          <h1>Blogs</h1>
+          <div>
+            <h1>Blogs</h1>
+            <BlogTypeSelector types={this.props.types} />
+          </div>
 
           <div className="blog-list">{this.renderList()}</div>
         </div>

@@ -41,11 +41,12 @@ export const logout = () => {
 };
 
 export const getAllBlogs = () => async dispatch => {
-  const { data } = await blogapi.get('/blogs', {
+  const { data } = await blogapi.get('/blogs?sort=-createdAt', {
     headers: {
       Authorization: `Bearer ${sessionStorage.getItem('token')}`,
     },
   });
+
   dispatch({ type: 'GET_ALL_BLOGS', payload: data.data });
 };
 
@@ -74,4 +75,17 @@ export const getBlogsAndUsers = () => async (dispatch, getState) => {
     .uniq()
     .forEach(id => dispatch(getUser(id)))
     .value();
+};
+
+export const filterBlogsByType = type => async dispatch => {
+  const { data } = await blogapi.get(`/blogs?type=${type}`, {
+    headers: {
+      Authorization: `Bearer ${sessionStorage.getItem('token')}`,
+    },
+  });
+
+  dispatch({
+    type: 'FILTER_BLOGS_BY_TYPE',
+    payload: data.data,
+  });
 };
